@@ -12,8 +12,8 @@ import java.io.IOException;
 public class RecipeListItem extends AnchorPane {
 
     @FXML private AnchorPane image4recipie;
-    @FXML private ImageView Fooditem;
-    @FXML private Text  Foodname;
+    @FXML private ImageView foodItem;
+    @FXML private Text foodName;
 
     private RecipeSearchController parentController;
     private Recipe recipe;
@@ -23,6 +23,7 @@ public class RecipeListItem extends AnchorPane {
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
+
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
@@ -30,8 +31,8 @@ public class RecipeListItem extends AnchorPane {
         }
 
         this.recipe = recipe;
-        Fooditem.setImage(recipe.getFXImage());
-        Foodname.setText(recipe.getName());
+        foodItem.setImage(recipe.getFXImage());
+        foodName.setText(recipe.getName());
         this.parentController = recipeSearchController;
     }
 }

@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <fx:root fx:id="image4recipie" prefHeight="100.0" prefWidth="320.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="94.0" fitWidth="151.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="160.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="142.13671875" />
+      <ImageView fx:id="foodItem" fitHeight="94.0" fitWidth="151.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="foodName" layoutX="160.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="142.13671875" />
    </children>
 </fx:root>

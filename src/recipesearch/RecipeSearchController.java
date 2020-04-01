@@ -47,10 +47,14 @@ public class RecipeSearchController implements Initializable {
     private void updateRecipeList() {
         recipiFP.getChildren().clear();
         List<Recipe> recipes = bc.getRecipes();
+
         for (Recipe r : recipes) {
             RecipeListItem recipeListItem = new RecipeListItem(r, this);
             recipiFP.getChildren().add(recipeListItem);
         }
+
+
+        System.out.println(recipes);
     }
 
 
