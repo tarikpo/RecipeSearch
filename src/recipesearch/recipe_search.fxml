@@ -44,7 +44,7 @@
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </Text>
-                        <TextArea layoutX="7.0" layoutY="129.0" prefHeight="84.0" prefWidth="219.0" text="Hitta ett recept som passar genom &#10;att ändra inställningarna nedanför" wrapText="true" AnchorPane.bottomAnchor="285.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="129.0">
+                        <TextArea editable="false" layoutX="7.0" layoutY="129.0" prefHeight="84.0" prefWidth="219.0" text="Hitta ett recept som passar genom &#10;att ändra inställningarna nedanför" wrapText="true" AnchorPane.bottomAnchor="285.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="129.0">
                            <font>
                               <Font name="Gabriola" size="18.0" />
                            </font>
@@ -52,8 +52,8 @@
                               <DropShadow color="#00b7ff" height="9.14" radius="3.2675" spread="1.0" width="5.93" />
                            </effect>
                         </TextArea>
-                        <ComboBox fx:id="cuisineCB" editable="true" layoutX="103.0" layoutY="264.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="209.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="264.0" />
-                        <ComboBox fx:id="headingrediensCB" editable="true" layoutX="103.0" layoutY="230.0" prefHeight="25.0" prefWidth="120.0" visibleRowCount="4" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="230.0" />
+                        <ComboBox fx:id="cuisineCB" layoutX="103.0" layoutY="264.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="209.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="264.0" />
+                        <ComboBox fx:id="headingrediensCB" layoutX="103.0" layoutY="230.0" prefHeight="25.0" prefWidth="120.0" visibleRowCount="4" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="230.0" />
                         <Text layoutX="3.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Huvudingrediens:" textAlignment="RIGHT" AnchorPane.bottomAnchor="245.9375" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="141.24609375" AnchorPane.topAnchor="236.0625">
                            <font>
                               <Font name="Gabriola" size="16.0" />
@@ -80,7 +80,7 @@
                            </font>
                         </RadioButton>
                         <Slider fx:id="maxtimeSlide" blockIncrement="0.0" layoutX="103.0" layoutY="443.0" majorTickUnit="20.0" max="160.0" minorTickCount="0" prefHeight="14.0" prefWidth="120.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                        <Spinner fx:id="maxpriceSpin" layoutX="103.0" layoutY="408.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="408.0" />
+                        <Spinner fx:id="maxpriceSpin" editable="true" layoutX="103.0" layoutY="408.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="408.0" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
