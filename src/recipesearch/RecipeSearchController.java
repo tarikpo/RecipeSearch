@@ -5,6 +5,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.event.Event;
+import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
 import com.sun.jdi.ObjectReference;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,6 +20,8 @@ import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
 
 
+
+
 public class RecipeSearchController implements Initializable {
 
 
@@ -26,7 +31,7 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private AnchorPane recipeDetailPane;  //<---
     @FXML
-    private AnchorPane searchPane;    //<---
+    private SplitPane searchPane;   //<---
     @FXML
     private ComboBox headingrediensCB;
     @FXML
@@ -45,6 +50,29 @@ public class RecipeSearchController implements Initializable {
     private Slider maxtimeSlide;
     @FXML
     private FlowPane recipiFP;
+    @FXML
+    private ImageView detailedFoodImage;
+    @FXML
+    private Text detailedFoodName;
+
+
+    public void openRecipeView(Recipe recipe){
+        populateRecipeDetailView(recipe);
+        recipeDetailPane.toFront();
+
+    }
+    //TODO fixa denna i Scene builder steg 10
+    @FXML
+    public void closeRecipeView(){
+       // recipeDetailPane.toBack();
+        searchPane.toFront();
+    }
+
+    private void populateRecipeDetailView(Recipe r){
+        detailedFoodName.setText(r.getName());
+        detailedFoodImage.setImage(r.getFXImage());
+
+    }
 
     private void updateRecipeList() {
         recipiFP.getChildren().clear();
@@ -54,11 +82,6 @@ public class RecipeSearchController implements Initializable {
             RecipeListItem recipeListItem = new RecipeListItem(r, this);
             recipiFP.getChildren().add(recipeListItem);
         }
-
-
-
-
-        System.out.println(recipes);
     }
 
 
@@ -139,7 +162,7 @@ public class RecipeSearchController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if(newValue != null && !newValue.equals(oldValue) && !maxtimeSlide.isValueChanging()) {
-                    bc.setMaxTime(newValue);
+                    bc.setMaxTime(newValue.intValue());
                     updateRecipeList();
                 }
 
