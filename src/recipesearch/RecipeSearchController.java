@@ -2,7 +2,9 @@
 package recipesearch;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.event.Event;
@@ -55,13 +57,15 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private Text detailedFoodName;
 
+    private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
+
 
     public void openRecipeView(Recipe recipe){
         populateRecipeDetailView(recipe);
         recipeDetailPane.toFront();
 
     }
-    //TODO fixa denna i Scene builder steg 10
+    //TODO fråga om denna i Scene builder steg 10
     @FXML
     public void closeRecipeView(){
        // recipeDetailPane.toBack();
@@ -79,7 +83,8 @@ public class RecipeSearchController implements Initializable {
         List<Recipe> recipes = bc.getRecipes();
 
         for (Recipe r : recipes) {
-            RecipeListItem recipeListItem = new RecipeListItem(r, this);
+           // RecipeListItem recipeListItem = new RecipeListItem(r, this);
+            RecipeListItem recipeListItem= recipeListItemMap.get(r.getName());
             recipiFP.getChildren().add(recipeListItem);
         }
     }
@@ -87,91 +92,95 @@ public class RecipeSearchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        updateRecipeList();
 
-        headingrediensCB.getItems().addAll("Visa alla", "Kött", "Fisk", "Kyckling", "Vegetarisk");
-        headingrediensCB.getSelectionModel().select("Visa alla");
-        headingrediensCB.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        for (Recipe recipe : bc.getRecipes()) {
+            RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
+            recipeListItemMap.put(recipe.getName(), recipeListItem);
+        }
+            updateRecipeList();
 
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                bc.setMainIngredient(newValue);
-                updateRecipeList();
-            }
-        });
+            headingrediensCB.getItems().addAll("Visa alla", "Kött", "Fisk", "Kyckling", "Vegetarisk");
+            headingrediensCB.getSelectionModel().select("Visa alla");
+            headingrediensCB.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-        cuisineCB.getItems().addAll("Visa alla", "Sverige", "Grekland", "Indien", "Asien","Afrika","Frankrike");
-        cuisineCB.getSelectionModel().select("Visa alla");
-        cuisineCB.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                bc.setCuisine(newValue);
-                updateRecipeList();
-            }
-        });
-
-        ToggleGroup difficultyToggleGroup = new ToggleGroup();
-        allRB.setToggleGroup(difficultyToggleGroup);
-        easyRB.setToggleGroup(difficultyToggleGroup);
-        mediumRB.setToggleGroup(difficultyToggleGroup);
-        difficulRB.setToggleGroup(difficultyToggleGroup);
-        allRB.setSelected(true);
-
-        difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
-                if (difficultyToggleGroup.getSelectedToggle() != null) {
-                    RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
-                    bc.setDifficulty(selected.getText());
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    bc.setMainIngredient(newValue);
                     updateRecipeList();
                 }
-            }
-        });
+            });
 
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999, 0, 10);
-        maxpriceSpin.setValueFactory(valueFactory);
-        maxpriceSpin.valueProperty().addListener(new ChangeListener<Integer>() {
+            cuisineCB.getItems().addAll("Visa alla", "Sverige", "Grekland", "Indien", "Asien", "Afrika", "Frankrike");
+            cuisineCB.getSelectionModel().select("Visa alla");
+            cuisineCB.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-            @Override
-            public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    bc.setCuisine(newValue);
+                    updateRecipeList();
+                }
+            });
+
+            ToggleGroup difficultyToggleGroup = new ToggleGroup();
+            allRB.setToggleGroup(difficultyToggleGroup);
+            easyRB.setToggleGroup(difficultyToggleGroup);
+            mediumRB.setToggleGroup(difficultyToggleGroup);
+            difficulRB.setToggleGroup(difficultyToggleGroup);
+            allRB.setSelected(true);
+
+            difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+
+                    if (difficultyToggleGroup.getSelectedToggle() != null) {
+                        RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
+                        bc.setDifficulty(selected.getText());
+                        updateRecipeList();
+                    }
+                }
+            });
+
+            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 999, 0, 10);
+            maxpriceSpin.setValueFactory(valueFactory);
+            maxpriceSpin.valueProperty().addListener(new ChangeListener<Integer>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
                     bc.setMaxPrice(newValue);
                     updateRecipeList();
-            }
-        });
-        maxpriceSpin.focusedProperty().addListener(new ChangeListener<Boolean>() {
-
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-
-                if(newValue){
-                    //focusgained - do nothing
                 }
-                else{
-                    Integer value = Integer.valueOf(maxpriceSpin.getEditor().getText());
-                    bc.setMaxPrice(value);
-                    updateRecipeList();
+            });
+            maxpriceSpin.focusedProperty().addListener(new ChangeListener<Boolean>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+
+                    if (newValue) {
+                        //focusgained - do nothing
+                    } else {
+                        Integer value = Integer.valueOf(maxpriceSpin.getEditor().getText());
+                        bc.setMaxPrice(value);
+                        updateRecipeList();
+                    }
+
                 }
+            });
 
-            }
-        });
+            maxtimeSlide.valueProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    if (newValue != null && !newValue.equals(oldValue) && !maxtimeSlide.isValueChanging()) {
+                        bc.setMaxTime(newValue.intValue());
+                        updateRecipeList();
+                    }
 
-        maxtimeSlide.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if(newValue != null && !newValue.equals(oldValue) && !maxtimeSlide.isValueChanging()) {
-                    bc.setMaxTime(newValue.intValue());
-                    updateRecipeList();
+
                 }
+            });
 
 
-            }
-        });
+        }
 
-
-    }
-
-
+    
 }
