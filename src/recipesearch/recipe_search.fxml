@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
@@ -35,28 +36,27 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Text layoutX="38.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Huvudingrediens:" />
-                        <Text layoutX="3.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kök:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="213.9375" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="141.24609375" AnchorPane.topAnchor="268.0625">
+                        <Text layoutX="5.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kök:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="237.9375" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="139.24609375" AnchorPane.topAnchor="244.0625">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="3.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Svårighetsgrad:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="181.9375" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="141.24609375" AnchorPane.topAnchor="300.0625">
+                        <Text layoutX="5.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Svårighetsgrad:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="205.9375" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="139.24609375" AnchorPane.topAnchor="276.0625">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="3.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maxpris:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="69.9375" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="141.24609375" AnchorPane.topAnchor="412.0625">
+                        <Text layoutX="5.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maxpris:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="93.9375" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="139.24609375" AnchorPane.topAnchor="388.0625">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </Text>
-                        <Text layoutX="3.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maxtid:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="40.9375" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="141.24609375" AnchorPane.topAnchor="441.0625">
+                        <Text layoutX="5.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maxtid:" textAlignment="RIGHT" wrappingWidth="88.75390625" AnchorPane.bottomAnchor="64.9375" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="139.24609375" AnchorPane.topAnchor="417.0625">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </Text>
-                        <TextArea editable="false" layoutX="7.0" layoutY="129.0" prefHeight="84.0" prefWidth="219.0" text="Hitta ett recept som passar genom &#10;att ändra inställningarna nedanför" wrapText="true" AnchorPane.bottomAnchor="285.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="129.0">
+                        <TextArea editable="false" layoutX="9.0" layoutY="105.0" prefHeight="84.0" prefWidth="219.0" text="Hitta ett recept som passar genom &#10;att ändra inställningarna nedanför" wrapText="true" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="105.0">
                            <font>
                               <Font name="Gabriola" size="18.0" />
                            </font>
@@ -64,35 +64,38 @@
                               <DropShadow color="#00b7ff" height="9.14" radius="3.2675" spread="1.0" width="5.93" />
                            </effect>
                         </TextArea>
-                        <ComboBox fx:id="cuisineCB" layoutX="103.0" layoutY="264.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="209.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="264.0" />
-                        <ComboBox fx:id="headingrediensCB" layoutX="103.0" layoutY="230.0" prefHeight="25.0" prefWidth="120.0" visibleRowCount="4" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="230.0" />
-                        <Text layoutX="3.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Huvudingrediens:" textAlignment="RIGHT" AnchorPane.bottomAnchor="245.9375" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="141.24609375" AnchorPane.topAnchor="236.0625">
+                        <ComboBox fx:id="headingrediensCB" layoutX="105.0" layoutY="206.0" prefHeight="25.0" prefWidth="120.0" visibleRowCount="4" AnchorPane.bottomAnchor="267.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="206.0" />
+                        <ComboBox fx:id="cuisineCB" layoutX="105.0" layoutY="240.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="233.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="240.0" />
+                        <Text layoutX="5.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Huvudingrediens:" textAlignment="RIGHT" AnchorPane.bottomAnchor="269.9375" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="139.24609375" AnchorPane.topAnchor="212.0625">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </Text>
-                        <RadioButton fx:id="allRB" layoutX="103.0" layoutY="298.0" mnemonicParsing="false" text="Alla" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="298.0">
+                        <RadioButton fx:id="allRB" layoutX="105.0" layoutY="274.0" mnemonicParsing="false" text="Alla" AnchorPane.bottomAnchor="202.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="274.0">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton fx:id="easyRB" layoutX="103.0" layoutY="324.0" mnemonicParsing="false" text="Lätt" AnchorPane.bottomAnchor="152.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="324.0">
+                        <RadioButton fx:id="easyRB" layoutX="105.0" layoutY="300.0" mnemonicParsing="false" text="Lätt" AnchorPane.bottomAnchor="176.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="300.0">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton fx:id="difficulRB" layoutX="103.0" layoutY="379.0" mnemonicParsing="false" text="Svår" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="379.0">
+                        <RadioButton fx:id="mediumRB" layoutX="105.0" layoutY="326.0" mnemonicParsing="false" text="Medel" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="326.0">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton fx:id="mediumRB" layoutX="103.0" layoutY="350.0" mnemonicParsing="false" text="Medel" AnchorPane.bottomAnchor="126.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="350.0">
+                        <RadioButton fx:id="difficulRB" layoutX="105.0" layoutY="355.0" mnemonicParsing="false" text="Svår" AnchorPane.bottomAnchor="121.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="355.0">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font>
                         </RadioButton>
-                        <Slider fx:id="maxtimeSlide" blockIncrement="0.0" layoutX="103.0" layoutY="443.0" majorTickUnit="20.0" max="160.0" minorTickCount="0" prefHeight="14.0" prefWidth="120.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                        <Spinner fx:id="maxpriceSpin" editable="true" layoutX="103.0" layoutY="408.0" prefHeight="25.0" prefWidth="120.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="408.0" />
+                        <Spinner fx:id="maxpriceSpin" editable="true" layoutX="105.0" layoutY="384.0" prefHeight="25.0" prefWidth="68.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="384.0" />
+                        <Slider fx:id="maxtimeSlide" blockIncrement="0.0" layoutX="105.0" layoutY="419.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="0" prefHeight="14.0" prefWidth="120.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Label fx:id="maxTimeLable" layoutX="154.0" layoutY="457.0" text="10" />
+                        <Label layoutX="183.0" layoutY="388.0" text="Kr" />
+                        <Label layoutX="174.0" layoutY="457.0" text="Minuter" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

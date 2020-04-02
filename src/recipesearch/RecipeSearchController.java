@@ -51,6 +51,8 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private Slider maxtimeSlide;
     @FXML
+    private Label maxTimeLable;
+    @FXML
     private FlowPane recipiFP;
     @FXML
     private ImageView detailedFoodImage;
@@ -81,14 +83,12 @@ public class RecipeSearchController implements Initializable {
     private void updateRecipeList() {
         recipiFP.getChildren().clear();
         List<Recipe> recipes = bc.getRecipes();
-
         for (Recipe r : recipes) {
-           // RecipeListItem recipeListItem = new RecipeListItem(r, this);
-            RecipeListItem recipeListItem= recipeListItemMap.get(r.getName());
-            recipiFP.getChildren().add(recipeListItem);
-        }
+        // RecipeListItem recipeListItem = new RecipeListItem(r, this);
+        RecipeListItem recipeListItem= recipeListItemMap.get(r.getName());
+        recipiFP.getChildren().add(recipeListItem);
     }
-
+}
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -174,13 +174,12 @@ public class RecipeSearchController implements Initializable {
                         bc.setMaxTime(newValue.intValue());
                         updateRecipeList();
                     }
-
-
+                        maxTimeLable.setText(Integer.toString((newValue.intValue()+5/10)));
                 }
             });
 
 
         }
 
-    
+
 }
